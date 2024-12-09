@@ -1,4 +1,4 @@
-
+// Profile.js
 import React, { useEffect, useState } from "react";
 import {
   View,
@@ -41,13 +41,12 @@ const Profile = ({ navigation }) => {
     });
   };
 
- const handleLogout = async () => {
-   await removeData("isLoggedIn");
-   await removeData("currentUser");
+  const handleLogout = async () => {
+    await removeData("isLoggedIn");
+    await removeData("currentUser");
 
-   navigation.navigate("Login"); // Navigate to the Login screen
- };
-
+    navigation.navigate("Login"); // Navigate to the Login screen
+  };
 
   return (
     <View style={styles.container}>

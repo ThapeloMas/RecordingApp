@@ -1,3 +1,4 @@
+// app.js
 import React, { useState, useEffect } from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
@@ -8,21 +9,22 @@ import Profile from "./src/screens/Profile";
 import Settings from "./src/screens/Settings";
 import Feedback from "./src/screens/Feedback";
 import AudioHome from "./src/screens/AudioHome";
-import RecordAudio from "./src/screens/RecordAudio";
-import PlayAudio from "./src/screens/PlayAudio";
 
 import { getData } from "./src/utils/storage";
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
+// Auth stack for login and registration
 const AuthStack = () => (
   <Stack.Navigator>
     <Stack.Screen name="Login" component={Login} />
     <Stack.Screen name="Register" component={Register} />
+    <Stack.Screen name="home" component={AppTabs} />
   </Stack.Navigator>
 );
 
+// App tabs for authenticated users
 const AppTabs = ({ isDarkMode }) => (
   <Tab.Navigator
     screenOptions={{
@@ -34,7 +36,7 @@ const AppTabs = ({ isDarkMode }) => (
     <Tab.Screen name="Profile" component={Profile} />
     <Tab.Screen name="Settings" component={Settings} />
     <Tab.Screen name="Feedback" component={Feedback} />
-    <Tab.Screen name="Audio" component={AudioHome} />
+    <Tab.Screen name="AudioHome" component={AudioHome} />
   </Tab.Navigator>
 );
 

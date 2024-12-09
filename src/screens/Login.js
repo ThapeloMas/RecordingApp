@@ -1,3 +1,4 @@
+// Login.js
 import React, { useState } from "react";
 import { View, TextInput, Button, Text, StyleSheet, Alert } from "react-native";
 import { getData, saveData } from "../utils/storage"; // Assuming these methods are for AsyncStorage
@@ -27,8 +28,8 @@ const Login = ({ navigation }) => {
       await saveData("isLoggedIn", true);
       await saveData("currentUser", user);
 
-      // Navigate to the Profile screen
-      navigation.replace("Profile");
+      // Navigate to the AudioHome screen
+      navigation.navigate("home"); // Use "AudioHome" instead of "Audio"
     } catch (error) {
       Alert.alert("Error", "Something went wrong. Please try again later.");
     }
